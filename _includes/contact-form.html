@@ -1,0 +1,26 @@
+<form name="contact-form" action="thank-you" netlify-honeypot="bot-field" netlify>
+  <div style="display:none;">
+    <label>Don’t fill this out</label>
+    <input name="bot-field"></label>
+  </div>
+  <div class="row">
+    <div class="column">
+      <input type="text" placeholder="First Name*" name="firstname" required>
+    </div>
+    <div class="column">
+      <input type="text" placeholder="Last Name*" name="lastname" required>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <input type="email" placeholder="Email*" name="email" required>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <textarea placeholder="Message" name="message" required></textarea>
+    </div>
+  </div>
+
+  <input class="button-primary button-fullwidth button-clear secondary-color" type="submit" value="Submit">
+</form>

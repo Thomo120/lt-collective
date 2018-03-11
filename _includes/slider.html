@@ -1,0 +1,21 @@
+<div id="hero">
+  <div class="owl-carousel">
+
+  {% assign projects = site.projects | sort: 'date' | reverse %}
+  {% for project in projects limit:4 %}
+  {% if project.featured %}
+  <div class="slide-item">
+    <a class="full-link" href="{{ project.url }}"></a>
+    <div class="slide-image" style="background-image: url({{ project.image }})"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-meta">
+      <h2 class="title">{{ project.title }}</h2>
+      <p class="caption">{{ project.categories }}</p>
+      <a class="button button-outline has-icon" href="{{ project.url }}"><span>View Project</span> <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+
+  </div>
+</div>

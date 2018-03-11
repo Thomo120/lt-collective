@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% if site.lang %}
+  <html lang="{{ site.lang }}">
+{% else %}
+  <html lang="en-AU">
+{% endif %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if site.color %}
+    <meta name="theme-color" content="{{ site.color }}">
+  {% endif %}
+  {% if page.layout == 'page' or page.layout == 'post' %}
+    <title>{{ page.title }} - {{ site.title }}</title>
+  {% else if page.layout == 'home' %}
+    <title>{{ page.title }}</title>
+  {% else %}
+    <title>{{ site.title }}</title>
+  {% endif %}
+  <link rel="shortcut icon" href="/assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/apple-touch-icon-114x114.png">
+  {% if page.description %}
+    <meta name="description" content="{{ page.description }}"/>
+  {% else %}
+    <meta name="description" content="{{ site.description }}"/>
+  {% endif %}
+  <link rel="canonical" href="{{ page.url | pretty }}">
+  {% if site.lang %}
+    <meta property="og:locale" content="{{ site.lang }}">
+  {% else %}
+    <meta property="og:locale" content="en-AU">
+  {% endif %}
+  {% if page.layout == post %}
+    <meta property="og:type" content="article">
+  {% else %}
+    <meta property="og:type" content="website">
+  {% endif %}
+  <meta property="og:title" content="{{ page.title }}">
+  {% if page.description %}
+    <meta property="og:description" content="{{ page.description }}">
+  {% else %}
+    <meta property="og:description" content="{{ site.description }}">
+  {% endif %}
+  <meta property="og:url" content="{{ page.url | pretty }}">
+  {% if page.layout == 'page' or page.layout == 'post' %}
+    <meta property="og:site_name" content="{{ page.title }} - {{ site.title }}">
+  {% else %}
+    <meta property="og:site_name" content="{{ site.title }}">
+  {% endif %}
+  {% if page.image %}
+    <meta property="og:image" content="{{ page.image }}">
+    <meta name="twitter:card" content="{{ page.image }}">
+    <meta name="twitter:image" content="{{ page.image }}">
+  {% else %}
+    <meta property="og:image" content="/assets/img/featured-image.jpg">
+    <meta name="twitter:card" content="/assets/img/featured-image.jpg">
+    <meta name="twitter:image" content="/assets/img/featured-image.jpg">
+  {% endif %}
+  {% if page.description %}
+    <meta name="twitter:description" content="{{ page.description }}">
+  {% else %}
+    <meta name="twitter:description" content="{{ site.description }}">
+  {% endif %}
+  {% if page.layout == 'page' or page.layout == 'post' %}
+    <meta name="twitter:title" content="{{ page.title }} - {{ site.title }}">
+  {% else %}
+    <meta name="twitter:title" content="{{ page.title }}">
+  {% endif %}
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+  <link href="{{ '/assets/css/style.css' }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+{% if page.layout != '404' %}
+<header id="header">
+  <div class="menu-wrapper">
+  <div class="container">
+    <div class="logo">
+      <a href="{{ site.url || '/' }}"><span style="font-weight: bold;">LT</span><em>Collective</em></a>
+    </div>
+    {% include menu.html %}
+  </div>
+</div>
+</header>
+{% endif %}
