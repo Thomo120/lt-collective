@@ -1,12 +1,15 @@
 {% include header.html %}
 
+<div class="post-header"{% if page.image %} style="background-image: url({{ page.image }})"{% endif %}>
+  <div class="container">
+    <a class="post-category" href="/{{ page.category | slugify }}">{{ page.category }}</a>
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-meta" datetime="{{ page.date | date_to_xmlschema }}">Posted <span class="posted"></span></p>
+  </div>
+</div>
+
 <div class="post">
   <div class="container">
-
-    <header class="post-header">
-      <h1 class="post-title">{{ page.title }}</h1>
-      <p class="post-meta" datetime="{{ page.date | date_to_xmlschema }}">Posted <span class="posted"></span></p>
-    </header>
 
     <article class="post-content">
       {{ content }}
