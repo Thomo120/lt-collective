@@ -27,8 +27,9 @@ email_url: happyflashmob@gmail.com
 
 # Build settings
 markdown: kramdown
-plugins:
+plugins_dir:
   - jekyll-feed
+  - jekyll-timeago
 
 permalink: /:categories/:title/
 post_dirs: false
@@ -52,8 +53,6 @@ defaults:
     values:
       layout: category
 
-gems:
-  - jekyll-timeago
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
