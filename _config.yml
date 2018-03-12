@@ -30,8 +30,12 @@ markdown: kramdown
 plugins:
   - jekyll-feed
 
-permalink: /:title/
+permalink: /:categories/:title/
 post_dirs: false
+
+collections:
+  category:
+    output: true
 
 defaults:
   -
@@ -40,6 +44,16 @@ defaults:
       type: posts
     values:
       layout: post
+
+  -
+    scope:
+      path: ""
+      type: category
+    values:
+      layout: category
+
+gems:
+  - jekyll-timeago
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

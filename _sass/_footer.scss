@@ -74,6 +74,10 @@
   margin-bottom: 0;
 }
 
+#footer .footer-bottom ul.latest .post-meta {
+  font-size: 1.4rem;
+}
+
 @media (max-width: 40rem) {
   #footer .contact .row {
     flex-direction: column;

@@ -9,24 +9,31 @@
 
           <div class="column">
               <h4>Categories</h4>
-              {% assign category = site.categories | sort: 'date' | reverse %}
-              {% for category in category | limit: 5 %}
-                <ul class="categories">
-                  <li><a href="/{{ category | slugify }}">{{ category | capitalize }}</a></li>
-                </ul>
-              {% endfor %}
+              <ul>
+              {% assign categories_list = site.categories %}
+                {% if categories_list.first[0] == null %}
+                  {% for category in categories_list %}
+                    <li><a href="/category/{{ category }}">{{ category | capitalize }}</a></li>
+                  {% endfor %}
+                {% else %}
+                {% for category in categories_list %}
+                  <li><a href="/category/{{ category[0] | downcase }}">{{ category[0] | capitalize }}</a></li>
+                {% endfor %}
+              {% endif %}
+            {% assign categories_list = nil %}
+          </ul>
           </div>
 
           <div class="column">
               <h4>Latest Posts</h4>
-              {% assign posts = site.posts | sort: 'date' | reverse %}
-              {% for post in posts | limit: 5 %}
-              {% if post.draft != 'false' %}
-                <ul class="latest">
-                  <li><a href="{{ post.url }}">{{ post.title }}<p class="post-meta" datetime="{{ page.date | date_to_xmlschema }}">Posted <span class="posted"></span></p></a></li>
-                </ul>
-                {% endif %}
-              {% endfor %}
+              <ul class="latest">
+                {% assign posts = site.posts | sort: 'date' | reverse %}
+                {% for post in posts | limit: 5 %}
+                  {% unless post.draft == 'true' %}
+                    <li><a href="{{ post.url }}">{{ post.title }}<p class="post-meta">Posted {{ post.date | timeago | capitalize }}</p></a></li>
+                  {% endunless %}
+                {% endfor %}
+              </ul>
           </div>
 
           <div class="column">
