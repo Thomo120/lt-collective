@@ -18,4 +18,18 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Image", name: "image", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown", required: false}
       - {label: "Category", name: "category", widget: "string", required: false}
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Inspiration", value: "inspiration" }
+          - { label: "Quotes", value: "quotes" }
+          - { label: "Lifestyle", value: "lifestyle" }
+          - { label: "Poetry", value: "poetry" }
+          - { label: "Stories", value: "stories" }
+          - { label: "Marriage", value: "marriage" }
+          - { label: "Relationships", value: "relationships" }
+          - { label: "Faith", value: "faith" }
+          - { label: "Adulting", value: "adulting" }
+        default: "post"
       - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD hh:mm:ss"}
