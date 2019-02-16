@@ -1,38 +1,38 @@
-{% include header.html %}
+---
+layout: default
+---
 
-<div class="post-header{% if page.image %} image{% endif %}"{% if page.image %} style="background-image: url({{ page.image }})"{% endif %}>
-  <div class="container">
-    <a class="post-category" href="/category/{{ page.category | slugify }}">{{ page.category | capitalize }}</a>
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">Posted {{ page.date | timeago | capitalize }}</p>
-  </div>
-</div>
+{% include base_path %}
 
-<div class="post">
-  <div class="container">
+{% if page.image %}
+  <meta itemprop='og:image' content='{{ base_path }}{{ page.image }}'>
+{% endif %}
 
-    <article class="post-content">
-      {{ content }}
-    </article>
+{% include post-hero.html %}
 
-  </div>
-</div>
+<div class='o-wrapper'>
 
-<div class="post-navigation">
-  <div class="container">
-  {% if page.previous.url %}
-    <div class="prev">
-      <h5>Previous Post</h5>
-      <a href="{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a>
+  <div class='o-grid'>
+    <div class='o-grid__col o-grid__col--center o-grid__col--2-3-m'>
+      <article class='c-post'>
+
+        <div class='c-content'>
+          {{ content }}
+        </div>
+
+        <div class='o-grid'>
+          <div class='o-grid__col o-grid__col--4-4-s'>
+              {% include share.html %}
+          </div>
+        </div>
+
+        <hr>
+
+        {% include disqus.html %}
+
+      </article>
+
     </div>
-  {% endif %}
-  {% if page.next.url %}
-    <div class="next">
-      <h5>Next Post</h5>
-      <a href="{{ page.next.url }}">{{ page.next.title }} &raquo;</a>
-    </div>
-  {% endif %}
   </div>
-</div>
 
-{% include footer.html %}
+</div>

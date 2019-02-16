@@ -1,111 +1,46 @@
-<!DOCTYPE html>
-{% if site.lang %}
-  <html lang="{{ site.lang }}">
-{% else %}
-  <html lang="en-AU">
-{% endif %}
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% if site.color %}
-    <meta name="theme-color" content="{{ site.color }}">
-  {% endif %}
+<header class='c-header'>
+  <div class='o-grid c-header__inner'>
 
-  {% if page.layout == 'page' && page.layout != 'home' && !page.tag or page.layout == 'post' && page.layout != 'home' && !page.tag %}
-    <title>{{ page.title }} - {{ site.title }}</title>
-  {% endif %}
-
-  {% if page.layout == 'home' %}
-    <title>{{ page.title }}</title>
-  {% endif %}
-
-  {% if page.tag %}
-    <title>{{ page.tag | capitalize }} - {{ site.title }}</title>
-  {% endif %}
-
-  <link rel="shortcut icon" href="/assets/img/favicon.png">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/apple-touch-icon-114x114.png">
-  {% if page.description %}
-    <meta name="description" content="{{ page.description }}"/>
-  {% else %}
-    <meta name="description" content="{{ site.description }}"/>
-  {% endif %}
-  <link rel="canonical" href="{{ page.url | pretty }}">
-  {% if site.lang %}
-    <meta property="og:locale" content="{{ site.lang }}">
-  {% else %}
-    <meta property="og:locale" content="en-AU">
-  {% endif %}
-  {% if page.layout == 'post' %}
-    <meta property="og:type" content="article">
-  {% else %}
-    <meta property="og:type" content="website">
-  {% endif %}
-
-  {% if page.layout == 'page' && page.layout != 'home' && !page.tag or page.layout == 'post' && page.layout != 'home' && !page.tag %}
-    <meta property="og:title" content="{{ page.title }} - {{ site.title }}">
-  {% endif %}
-
-  {% if page.layout == 'home' %}
-    <meta property="og:title" content="{{ page.title }}">
-  {% endif %}
-
-  {% if page.tag %}
-    <meta property="og:title" content="{{ page.tag | capitalize }} - {{ site.title }}">
-  {% endif %}
-
-  {% if page.description %}
-    <meta property="og:description" content="{{ page.description }}">
-  {% else %}
-    <meta property="og:description" content="{{ site.description }}">
-  {% endif %}
-  <meta property="og:url" content="{{ page.url | pretty }}">
-  <meta property="og:site_name" content="{{ site.title }}">
-  {% if page.image %}
-    <meta property="og:image" content="{{ page.image }}">
-    <meta name="twitter:card" content="{{ page.image }}">
-    <meta name="twitter:image" content="{{ page.image }}">
-  {% else %}
-    <meta property="og:image" content="/assets/img/featured-image.jpg">
-    <meta name="twitter:card" content="/assets/img/featured-image.jpg">
-    <meta name="twitter:image" content="/assets/img/featured-image.jpg">
-  {% endif %}
-  {% if page.description %}
-    <meta name="twitter:description" content="{{ page.description }}">
-  {% else %}
-    <meta name="twitter:description" content="{{ site.description }}">
-  {% endif %}
-
-  {% if page.layout == 'page' && page.layout != 'home' && !page.tag or page.layout == 'post' && page.layout != 'home' && !page.tag %}
-    <meta property="twitter:title" content="{{ page.title }} - {{ site.title }}">
-  {% endif %}
-
-  {% if page.layout == 'home' %}
-    <meta property="twitter:title" content="{{ page.title }}">
-  {% endif %}
-
-  {% if page.tag %}
-    <meta property="twitter:title" content="{{ page.tag | capitalize }} - {{ site.title }}">
-  {% endif %}
-
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
-  <link href="{{ '/assets/css/style.css' }}" rel="stylesheet" type="text/css">
-</head>
-<body>
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-{% if page.layout != '404' %}
-<header id="header">
-  <div class="menu-wrapper">
-  <div class="container">
-    <div class="logo">
-      <a href="{{ site.url || '/' }}"><span style="font-weight: bold;">LT</span><em>Collective</em></a>
+    <div class='o-grid__col o-grid__col--3-4-s o-grid__col--1-4-l'>
+      <div class='c-logo'>
+        {% if site.logo %}
+          <a href='{{ site.baseurl }}/'>
+            <img class='c-logo__img' src='{{ site.logo }}' alt='{{ site.title }}'>
+          </a>
+        {% else %}
+          <h1><a class='c-logo__link' href='{{ site.baseurl }}/'>{{ site.title }}</a></h1>
+        {% endif %}
+      </div>
     </div>
-    {% include menu.html %}
+
+    <div class='o-grid__col o-grid__col--1-4-s o-grid__col--3-4-l _o-grid__col--full'>
+      <div class='c-off-canvas-content js-off-canvas-content'>
+        <div class='js-off-canvas-toggle c-off-canvas-toggle c-off-canvas-toggle--close'>
+          <span class='c-off-canvas-toggle__icon'></span>
+        </div>
+
+        <div class='o-grid'>
+          <div class='o-grid__col o-grid__col--4-4-s o-grid__col--3-4-l o-grid__col--full'>
+            <nav class='c-nav-wrap'>
+              <ul class='c-nav o-plain-list'>
+                {% include navigation.html %}
+                <li class='c-nav__item'>
+                  <a class='toggle-search-button js-search-toggle' href='#' aria-label='Search'>
+                    <span class='c-nav__icon' data-icon='ei-search' data-size='s'></span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div class='js-off-canvas-toggle c-off-canvas-toggle'>
+        <span class='c-off-canvas-toggle__icon'></span>
+      </div>
+    </div>
+
   </div>
-</div>
 </header>
-{% endif %}
+
+{% include search-form.html %}

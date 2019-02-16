@@ -1,66 +1,48 @@
-# Welcome to Jekyll!
+# Welcome to Sinai Jekyll Theme!
 #
 # This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
+# which you are expected to set up once and rarely need to edit after that.
 # For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+theme_version: 1.0.1
 
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: LT Collective
-description: LT Collective is a collection of Lauren Thompson's adventure in time and space.
-url: "/" # the base hostname & protocol for your site, e.g. http://example.com
+title:              LT Collective
+logo:               # Logo image URL
+description:        Thoughts, Stories and Ideas
+baseurl:            '' # The subpath of your site, e.g. /blog
+url:                'https://ltcollective.com.au' # The base hostname & protocol for your site
+twitter:            
+facebook:           https://www.facebook.com/ltcollective
+instagram:          https://www.instagram.com/ltcollective
 
-google_analytics:
-color: '#000'
+markdown:  kramdown
+permalink: pretty
+paginate:  12
+sass:
+  style: compressed
 
-# Social links
-facebook_url: https://www.facebook.com/laurenemmadavis
-instagram_url: https://www.instagram.com/thomo120
-email_url: happyflashmob@gmail.com
+gems:
+  - jekyll-paginate
+  - jekyll/tagging
 
-# Build settings
-markdown: kramdown
-plugins_dir:
-  - jekyll-feed
-  - jekyll-timeago
+include:
+  - _pages
 
-permalink: /:categories/:title/
-post_dirs: false
-
-collections:
-  category:
-    output: true
-
-defaults:
-  -
-    scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
-
-  -
-    scope:
-      path: ""
-      type: category
-    values:
-      layout: category
-
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
 exclude:
-   - Gemfile
-   - Gemfile.lock
-   - node_modules
-   - gulpfile.js
-   - package.json
-   - assets/js/init.js
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+
+# Tags
+tag_page_dir:         tag
+tag_page_layout:      tag_page
+tag_permalink_style:  pretty
+
+# Pages path
+defaults:
+  - scope:
+      path: '_pages'
+    values:
+      permalink: /:basename:output_ext
