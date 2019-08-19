@@ -26,5 +26,5 @@ fields:
   name: image
   label: Image
 pages:
-- _posts/Calling.md
 - _posts/rise.md
+- _posts/Calling.md
