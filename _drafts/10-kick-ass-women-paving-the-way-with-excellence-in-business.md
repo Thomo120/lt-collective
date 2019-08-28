@@ -16,7 +16,7 @@ With **Women** comprising 46.9% of all employed persons in **Australia** there i
 
 3\. Lauren Yeates (Rave it up) – Lauren is an entertainment Reporter & Celebrity Interviewer who at a very young age discovered she loved journalism so much that she would pursue a career within the industry. Thus, Rave it up was born and at the tender age of twenty- four she already has a whopping nine years of experience. Lauren has interviewed well-known stars such as Hugh Jackman, Justice Crew and many more and with a new book under her belt, a hit radio station and ballroom dance lessons is there really anything this successful woman can’t do?
 
-4. Laura Pantry and Rachael Russell 
+4. Laura Pantry and Rachael Russell (Tiny Tummy's)
 5. Candice Jade Oliver 
 
 
