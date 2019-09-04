@@ -26,6 +26,7 @@ sass:
 gems:
   - jekyll-paginate
   - jekyll/tagging
+  - jekyll-seo-tag
 
 include:
   - _pages
