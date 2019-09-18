@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Lauren
-title: 'R U OK? Really? '
+title: 'Are you Ok? '
 tags: []
 image: "/uploads/Copy of Untitled Design (4).png"
 
