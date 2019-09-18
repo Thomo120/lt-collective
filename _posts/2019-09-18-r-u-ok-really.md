@@ -3,7 +3,7 @@ layout: post
 author: Lauren
 title: 'Are you Ok? '
 tags: []
-image: "/uploads/Copy of Untitled Design (5).png"
+image: "/uploads/Copy of Copy of Untitled Design (1).png"
 
 ---
 Sometimes, just sometimes I feel utterly hopeless. Have you ever experienced this feeling? Overshadowed by a constant fear that everything that I do is never enough. I think as people in this world of constant connection it's interesting to me that we can still feel so utterly alone. Loneliness's is a killer of a generation of people who have extraordinary talents and ideas and yet in this generation, we are battling against an ever-present view of what we have to be and what image can I portray to the world on Instagram. 
